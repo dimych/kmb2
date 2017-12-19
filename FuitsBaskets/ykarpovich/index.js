@@ -1,3 +1,45 @@
+var fruits = ['Apple', 'Pear', 'Orange'];
+var applesAttr = ['true', 'false'];
+var pearAttr = ['1', '2', '3'];
+var orangeAttr = ['Bel', 'Rus', 'USA']
+
+var i = 0;
+
+function createButton() {
+  var $fruitName = $('<select/>');
+  var $typeAttr = $('<select/>');
+  for (var i in applesAttr) {
+    $typeAttr.append(new Option(applesAttr[i]));
+  }
+  $fruitName = $('<select/>').change(function () {
+    $typeAttr.empty();
+    if (this.value == 'Apple') {
+      for (var i in applesAttr) {
+        $typeAttr.append(new Option(applesAttr[i]));
+      }
+    }
+
+    if (this.value == 'Pear') {
+      for (var i in pearAttr) {
+        $typeAttr.append(new Option(pearAttr[i]));
+      }
+    }
+
+    if (this.value == 'Orange') {
+      for (var i in orangeAttr) {
+        $typeAttr.append(new Option(orangeAttr[i]));
+      }
+    }
+  });
+  for (var i in fruits) {
+    $fruitName.append(new Option(fruits[i]));
+  }
+  var $buttonAdd = $('<button>').text('Add to Basket');
+  var $inputName = $('<input>').attr('placeholder', 'What fruit name?');
+  $('body').append($fruitName, $inputName, $typeAttr, $buttonAdd);
+}
+createButton();
+
 function Apple(name, isWinter) {
   this.name = name;
   this.isWinter = isWinter;
@@ -12,25 +54,6 @@ function Orange(name, country) {
   this.name = name;
   this.country = country;
 }
-
-var apple1 = new Apple('princ', true);
-var apple2 = new Apple('antonovka', false);
-var apple3 = new Apple('gorec', true);
-var apple4 = new Apple('slava pobediteljam', false);
-var apple5 = new Apple('naliv', false);
-
-var pear1 = new Pear('konferncija', 1);
-var pear2 = new Pear('konferncija', 1);
-var pear3 = new Pear('konferncija', 1);
-var pear4 = new Pear('konferncija', 1);
-var pear5 = new Pear('konferncija', 1);
-
-var orange1 = new Orange('an', 'Egypt');
-var orange2 = new Orange('an', 'Argentina');
-var orange3 = new Orange('an', 'Brazil');
-var orange4 = new Orange('an', 'SAR');
-var orange5 = new Orange('an', 'SAR');
-
 
 function Basket() {
 
@@ -59,7 +82,7 @@ function Basket() {
         console.log(this._oranges[i]);
       }
 
-    
+
   }
 
   this.clear = function () {
@@ -69,29 +92,43 @@ function Basket() {
   }
 }
 
-var newBasket = new Basket();
 
-newBasket.addProduct(apple1);
-newBasket.addProduct(apple2);
-newBasket.addProduct(apple3);
-newBasket.addProduct(apple4);
-newBasket.addProduct(apple5);
 
-newBasket.addProduct(orange1);
-newBasket.addProduct(orange2);
-newBasket.addProduct(orange3);
-newBasket.addProduct(orange4);
-newBasket.addProduct(orange5);
+function addElementToBacsket() {
 
-newBasket.addProduct(pear1);
-newBasket.addProduct(pear2);
-newBasket.addProduct(pear3);
-newBasket.addProduct(pear4);
-newBasket.addProduct(pear5);
+}
 
-newBasket.giveFruts(Apple);
-newBasket.giveFruts(Orange);
-newBasket.giveFruts(Pear);
+// var newBasket = new Basket();
+
+// newBasket.addProduct(apple1);
+// newBasket.addProduct(apple2);
+// newBasket.addProduct(apple3);
+// newBasket.addProduct(apple4);
+// newBasket.addProduct(apple5);
+
+// newBasket.addProduct(orange1);
+// newBasket.addProduct(orange2);
+// newBasket.addProduct(orange3);
+// newBasket.addProduct(orange4);
+// newBasket.addProduct(orange5);
+
+// newBasket.addProduct(pear1);
+// newBasket.addProduct(pear2);
+// newBasket.addProduct(pear3);
+// newBasket.addProduct(pear4);
+// newBasket.addProduct(pear5);
+
+// newBasket.giveFruts(Apple);
+// newBasket.giveFruts(Orange);
+// newBasket.giveFruts(Pear);
+
+// var arr = [1, 2, 3, 4, 5];
+
+// var arr2 = arr.map(function(num){
+//   return num*2;
+// });
+
+// console.log(arr2);
 
 
 // ________________________________________________________
@@ -130,12 +167,3 @@ newBasket.giveFruts(Pear);
 // newCar1.hasTurboEngine();
 // newCar2.hasTurboEngine();
 // newCar3.hasTurboEngine();
-
-var arr = [1, 2, 3, 4, 5];
-
-var arr2 = arr.map(function(num){
-  return num*2;
-});
-
-console.log(arr2);
-
