@@ -25,13 +25,10 @@ function Basket() {
             if (fruit.isWinter === true) {
                 this.winterApplesCount++;
             }
-            console.log('apple');
         } else if (fruit.constructor.name === 'Pear') {
             this._allPearObject.push(fruit);
-            console.log('per');
         } else if (fruit.constructor.name === 'Orange') {
             this._allOrangeObject.push(fruit);
-            console.log('orange');
         }
     }
 
@@ -39,27 +36,86 @@ function Basket() {
         var apples = [];
         for (var i = 0; i < this._allAppleObject.length; i++) {
             apples.push(this._allAppleObject[i]);
-            console.log(apples[i].name)
         }
         return apples;
     }
     this.getAllPears = function () {
 
     }
-    this.getAllOrange = function () {
+    this.getAllOranges = function () {
         var oranges = [];
         for (var i = 0; i < this._allOrangeObject.length; i++) {
             oranges.push(this._allOrangeObject[i]);
-            console.log(oranges[i].name)
         }
         return oranges;
     }
     this.clear = function () {
         this._allAppleObject = [];
         this._allOrangeObject = [];
-        // console.log(this._allAppleObject);
-        // console.log(this._allOrangeObject);
     }
 };
 
+function BasketApp() {
+    this.render = function () {
+        var container = document.getElementById("container");
+        var createFruitsBtn = document.createElement('button');
+        var basketStateDiv = document.createElement('div');
+        
+        container.appendChild(createFruitsBtn);
+        container.appendChild(basketStateDiv);        
+
+        basketStateDiv.innerHTML = 'Basket is Empty';
+        basketStateDiv.id = "basketStateId";
+
+        createFruitsBtn.innerHTML = 'Create Fruits';
+
+        createFruitsBtn.addEventListener("click", this.putFruitsToBasket.bind(this));
+        createFruitsBtn.addEventListener("click", this.renderBasket.bind(this));
+    };
+
+    this.basket = new Basket();
+
+    this.renderBasket = function (e) {
+        var basketStateDiv = document.getElementById('basketStateId');
+        basketStateDiv.innerHTML = '';
+        var applesHeader = document.createElement('div');
+        var orangesHeader = document.createElement('div');
+        var applesContainer = document.createElement('div');
+        var orangesContainer = document.createElement('div');
+        applesContainer.className = 'basket-elements';
+        orangesContainer.className = 'basket-elements';
+        
+        applesHeader.innerHTML ='Apples:';
+        applesHeader.className = 'header';
+        var apples = this.basket.getAllApples();
+        for (var i in apples) {
+            applesContainer.innerHTML += apples[i].name;
+            applesContainer.innerHTML += '</br>';
+        }
+
+        orangesHeader.innerHTML ="Oranges:";
+        orangesHeader.className = 'header';
+        var oranges = this.basket.getAllOranges();
+        for (var i in oranges) {
+            orangesContainer.innerHTML += oranges[i].name;
+            orangesContainer.innerHTML += '</br>';
+        }
+        
+        basketStateDiv.appendChild(applesHeader);
+        basketStateDiv.appendChild(applesContainer);
+        basketStateDiv.appendChild(orangesHeader);
+        basketStateDiv.appendChild(orangesContainer);
+    };
+
+    this.putFruitsToBasket = function (e) {
+        this.basket.addProduct(apple1);
+        this.basket.addProduct(apple2);
+        console.log(this.basket.winterApplesCount===1);
+        this.basket.addProduct(orange1);
+        this.basket.addProduct(orange2);
+    };
+
+    this.removeLastApple = function () { };
+    this.removeLastOrange = function () { };
+};
 

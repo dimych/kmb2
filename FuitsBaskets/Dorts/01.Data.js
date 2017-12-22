@@ -22,4 +22,4 @@ var orange5 = new Orange('Star', 'China');
 
 var allOrangeObject = [orange1, orange2, orange3, orange4, orange5];
 
-var basket = new Basket();
+var basketApp = new BasketApp();
