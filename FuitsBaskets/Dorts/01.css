@@ -1,0 +1,11 @@
+.header {
+    border: 1px red solid;
+    background-color: black;
+    color: white;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.basket-elements {
+    margin-bottom: 8px;
+    margin-left: 10px;
+}
