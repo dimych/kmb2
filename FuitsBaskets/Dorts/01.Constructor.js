@@ -17,10 +17,14 @@ function Basket() {
     this._allAppleObject = [];
     this._allPearObject = [];
     this._allOrangeObject = [];
+    this.winterApplesCount = 0;
 
     this.addProduct = function (fruit) {
         if (fruit.constructor.name === 'Apple') {
             this._allAppleObject.push(fruit);
+            if (fruit.isWinter === true) {
+                this.winterApplesCount++;
+            }
             console.log('apple');
         } else if (fruit.constructor.name === 'Pear') {
             this._allPearObject.push(fruit);
