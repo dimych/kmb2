@@ -40,7 +40,11 @@ function Basket() {
         return apples;
     }
     this.getAllPears = function () {
-
+        var pears = [];
+        for (var i = 0; i < this._allPearObject.length; i++) {
+            pears.push(this._allPearObject[i]);
+        }
+        return pears;
     }
     this.getAllOranges = function () {
         var oranges = [];
@@ -51,71 +55,107 @@ function Basket() {
     }
     this.clear = function () {
         this._allAppleObject = [];
+        this._allPearObject = [];
         this._allOrangeObject = [];
+    }
+
+    this.popLastApple = function () {
+        this._allAppleObject.pop();
+    }
+    this.popLastPear = function () {
+        this._allPearObject.pop();
+    }
+    this.popLastOrange = function () {
+        this._allOrangeObject.pop();
     }
 };
 
 function BasketApp() {
-    this.render = function () {
-        var container = document.getElementById("container");
-        var createFruitsBtn = document.createElement('button');
-        var basketStateDiv = document.createElement('div');
-        
-        container.appendChild(createFruitsBtn);
-        container.appendChild(basketStateDiv);        
-
-        basketStateDiv.innerHTML = 'Basket is Empty';
-        basketStateDiv.id = "basketStateId";
-
-        createFruitsBtn.innerHTML = 'Create Fruits';
-
-        createFruitsBtn.addEventListener("click", this.putFruitsToBasket.bind(this));
-        createFruitsBtn.addEventListener("click", this.renderBasket.bind(this));
-    };
-
     this.basket = new Basket();
+
+    this.addButton = function (name, method) {
+        var buttonsContainer = document.getElementById('buttons');
+        var btn = document.createElement('button');
+        btn.className = 'button';
+        btn.innerHTML = name;
+        btn.addEventListener('click', method);
+        btn.addEventListener('click', this.renderBasket.bind(this));
+        buttonsContainer.appendChild(btn);
+    }
+
+    this.render = function () {
+        var container = document.getElementById('container');
+        var buttonsContainer = document.createElement('div');
+        var basketStateDiv = document.createElement('div');
+
+        container.appendChild(buttonsContainer);
+        container.appendChild(basketStateDiv);
+        basketStateDiv.id = 'basketStateId';
+        basketStateDiv.className = 'basket';
+        buttonsContainer.id = 'buttons';
+        this.addButton('Create Fruits', this.putFruitsToBasket.bind(this));
+        this.addButton('Clear All Fruits', this.basket.clear.bind(this.basket));
+        this.addButton('Remove Last Apple', this.removeLastApple.bind(this));
+        this.addButton('Remove Last Pear', this.removeLastPear.bind(this));
+        this.addButton('Remove Last Orange', this.removeLastOrange.bind(this));
+        this.renderBasket();
+    };
 
     this.renderBasket = function (e) {
         var basketStateDiv = document.getElementById('basketStateId');
-        basketStateDiv.innerHTML = '';
-        var applesHeader = document.createElement('div');
-        var orangesHeader = document.createElement('div');
-        var applesContainer = document.createElement('div');
-        var orangesContainer = document.createElement('div');
-        applesContainer.className = 'basket-elements';
-        orangesContainer.className = 'basket-elements';
-        
-        applesHeader.innerHTML ='Apples:';
-        applesHeader.className = 'header';
         var apples = this.basket.getAllApples();
-        for (var i in apples) {
-            applesContainer.innerHTML += apples[i].name;
-            applesContainer.innerHTML += '</br>';
-        }
-
-        orangesHeader.innerHTML ="Oranges:";
-        orangesHeader.className = 'header';
         var oranges = this.basket.getAllOranges();
-        for (var i in oranges) {
-            orangesContainer.innerHTML += oranges[i].name;
-            orangesContainer.innerHTML += '</br>';
+        var pears = this.basket.getAllPears();
+
+        if (apples.length || oranges.length || pears.length) {
+            basketStateDiv.innerHTML = '';
+            var applesHeader = document.createElement('div');
+            var orangesHeader = document.createElement('div');
+            var applesContainer = document.createElement('div');
+            var orangesContainer = document.createElement('div');
+            applesContainer.className = 'basket-elements';
+            orangesContainer.className = 'basket-elements';
+
+            applesHeader.innerHTML = 'Apples:';
+            applesHeader.className = 'header';
+            for (var i in apples) {
+                applesContainer.innerHTML += apples[i].name;
+                applesContainer.innerHTML += '</br>';
+            }
+
+            orangesHeader.innerHTML = 'Oranges:';
+            orangesHeader.className = 'header';
+            for (var i in oranges) {
+                orangesContainer.innerHTML += oranges[i].name;
+                orangesContainer.innerHTML += '</br>';
+            }
+
+            basketStateDiv.appendChild(applesHeader);
+            basketStateDiv.appendChild(applesContainer);
+            basketStateDiv.appendChild(orangesHeader);
+            basketStateDiv.appendChild(orangesContainer);
+        } else {
+            basketStateDiv.innerHTML = 'Basket is Empty';
         }
-        
-        basketStateDiv.appendChild(applesHeader);
-        basketStateDiv.appendChild(applesContainer);
-        basketStateDiv.appendChild(orangesHeader);
-        basketStateDiv.appendChild(orangesContainer);
     };
 
     this.putFruitsToBasket = function (e) {
+        this.basket.clear();
         this.basket.addProduct(apple1);
         this.basket.addProduct(apple2);
-        console.log(this.basket.winterApplesCount===1);
+        console.log(this.basket.winterApplesCount === 1);
         this.basket.addProduct(orange1);
         this.basket.addProduct(orange2);
     };
 
-    this.removeLastApple = function () { };
-    this.removeLastOrange = function () { };
+    this.removeLastApple = function () {
+        this.basket.popLastApple();
+    };
+    this.removeLastPear = function () {
+        this.basket.popLastPear();
+    };
+    this.removeLastOrange = function () {
+        this.basket.popLastOrange();
+    };
 };
 
