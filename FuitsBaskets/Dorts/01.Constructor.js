@@ -110,10 +110,17 @@ function BasketApp() {
         if (apples.length || oranges.length || pears.length) {
             basketStateDiv.innerHTML = '';
             var applesHeader = document.createElement('div');
-            var orangesHeader = document.createElement('div');
             var applesContainer = document.createElement('div');
+
+            var pearsHeader = document.createElement('div');
+            var pearsContainer = document.createElement('div');
+
+            var orangesHeader = document.createElement('div');
             var orangesContainer = document.createElement('div');
+            
+            
             applesContainer.className = 'basket-elements';
+            pearsContainer.className = 'basket-elements';
             orangesContainer.className = 'basket-elements';
 
             applesHeader.innerHTML = 'Apples:';
@@ -121,6 +128,13 @@ function BasketApp() {
             for (var i in apples) {
                 applesContainer.innerHTML += apples[i].name;
                 applesContainer.innerHTML += '</br>';
+            }
+
+            pearsHeader.innerHTML = 'Pears:';
+            pearsHeader.className = 'header';
+            for (var i in pears) {
+                pearsContainer.innerHTML += pears[i].name;
+                pearsContainer.innerHTML += '</br>';
             }
 
             orangesHeader.innerHTML = 'Oranges:';
@@ -132,6 +146,8 @@ function BasketApp() {
 
             basketStateDiv.appendChild(applesHeader);
             basketStateDiv.appendChild(applesContainer);
+            basketStateDiv.appendChild(pearsHeader);
+            basketStateDiv.appendChild(pearsContainer);
             basketStateDiv.appendChild(orangesHeader);
             basketStateDiv.appendChild(orangesContainer);
         } else {
@@ -146,6 +162,7 @@ function BasketApp() {
         console.log(this.basket.winterApplesCount === 1);
         this.basket.addProduct(orange1);
         this.basket.addProduct(orange2);
+        this.basket.addProduct(pear1);
     };
 
     this.removeLastApple = function () {
