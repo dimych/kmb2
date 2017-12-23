@@ -68,6 +68,10 @@ function Basket() {
     this.popLastOrange = function () {
         this._allOrangeObject.pop();
     }
+
+    // this.save = function () {};
+    // this.load = function () {};
+    // this._dal = new LocalStorageBasket();
 };
 
 function BasketApp() {
