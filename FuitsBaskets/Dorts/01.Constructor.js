@@ -117,8 +117,8 @@ function BasketApp() {
 
             var orangesHeader = document.createElement('div');
             var orangesContainer = document.createElement('div');
-            
-            
+
+
             applesContainer.className = 'basket-elements';
             pearsContainer.className = 'basket-elements';
             orangesContainer.className = 'basket-elements';
