@@ -1,0 +1,31 @@
+.header {
+    border: 1px red solid;
+    background-color: black;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+}
+.basket-elements {
+    margin-bottom: 8px;
+    margin-left: 10px;
+}
+
+.basket {
+    position: absolute;
+    margin-top: 20px;
+    border: 1px solid;
+    display: inline-block;
+    left: 60%;
+    width: 30%;
+}
+
+#buttons {
+    position: absolute;
+    top: 28px;
+    display: inline-block;
+    width: 60%; 
+}
+
+.button {
+    display: block;
+}
