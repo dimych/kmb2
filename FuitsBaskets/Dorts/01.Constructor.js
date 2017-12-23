@@ -68,6 +68,10 @@ function Basket() {
     this.popLastOrange = function () {
         this._allOrangeObject.pop();
     }
+
+    // this.save = function () {};
+    // this.load = function () {};
+    // this._dal = new LocalStorageBasket();
 };
 
 function BasketApp() {
@@ -117,8 +121,8 @@ function BasketApp() {
 
             var orangesHeader = document.createElement('div');
             var orangesContainer = document.createElement('div');
-            
-            
+
+
             applesContainer.className = 'basket-elements';
             pearsContainer.className = 'basket-elements';
             orangesContainer.className = 'basket-elements';
