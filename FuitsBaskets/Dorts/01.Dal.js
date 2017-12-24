@@ -1,33 +1,34 @@
 function LocalStorageBasket() {
-    this.save = function (key, object) {//ключ:значение - передаем название и то, что хотим переобразовать
+    this.save = function (key, object) {
         var wrapper = {
             name: object.constructor.name,
             object: object,
         }
-        var str = JSON.stringify(wrapper);//передаём то, что хотим переобразовать в строку
-        localStorage.setItem(key, str);//передаем название и переобразованную переменную с тем, что хотим переобразовать
+        var str = JSON.stringify(wrapper);
+        localStorage.setItem(key, str);
         console.log('save');
     };
     this.load = function (key) {
         var wrapperString = localStorage.getItem(key);
         var wrapper = JSON.parse(wrapperString);
-        var objWitoutType = wrapper.object;
-        if (wrapper.name === 'Apple') {
-            return new Apple();
+        if (wrapper.object.name === 'Apple') {
+            console.log('apple');
         }
-        if (wrapper.name === 'Orange') {
-            return new Orange();
+        if (wrapper.object.name === 'Orange') {
+            console.log('orange');
         }
         console.log('load');
-        return objWitoutType;
+        return wrapper;
     };
 };
 
 var dal = new LocalStorageBasket();
+
 var apple = new Apple('BlaBlaCar', false);
-dal.save('Array', apple);//передаем название массива и переменную-массива
+var orange = new Orange('Malavita', 'circle');
 
+dal.save('Apple', apple);
+dal.save('Orange', orange);
 
-dal.load('Array');
-
-// var basket = basketApp.basket;
+dal.load('Apple');
+dal.load('Orange');
