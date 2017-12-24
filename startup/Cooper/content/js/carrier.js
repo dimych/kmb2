@@ -1,11 +1,11 @@
-function Carrier(loginCarrier, passwordCarrier, mailCarrier, phoneNumber, nameCarrier) {
+function Carrier(loginCarrier, passwordCarrier, carrierName, mailCarrier, phoneNumber) {
     this.loginCarrier = loginCarrier;
     this.passwordCarrier = passwordCarrier;
     this.mailCarrier = mailCarrier;
+    this.carrierName = carrierName;
     this.phoneNumber = phoneNumber;
-    this.carrierName = nameCarrier;
-    this.Minibuses = [];
-    this.carrierRoutes = [];
+    this._Minibuses = [];
+    this._carrierRoutes = [];
 
     this.addMinibus = function () { };
     this.delMinibus = function () { };
