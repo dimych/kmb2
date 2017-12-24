@@ -9,7 +9,7 @@ $('.clouseBtn').on('click', function () {
     $('.loginForm').hide();
 });
 $('.registrationBtn').on('click', function () {
-    location.href = "pages/registration_page.html"
+    location.href = "registration_page.html"
 });
 $('.nextBtn').on('click', function () {
     if ($("input:checked").val() == 'Passenger') {
@@ -23,10 +23,12 @@ $('.nextBtn').on('click', function () {
         $('.selectTypeOfUser').hide();
     }
 });
+
+
 $('.submitBtn').on('click', function (event) {
     event.preventDefault();
     //location.href = "../index.html"
-    
+
     // var loginPassenger = $('.loginPassenger').val();
     // var passwordPassenger = $('.passwordPassenger').val();
     // var firstNamePassenger = $('.firstNamePassenger').val();
@@ -37,18 +39,6 @@ $('.submitBtn').on('click', function (event) {
     // Passengers.push(newPassenger);
     // console.log(Passengers);
 
-
-
-    // var loginCarrier = $('.loginCarrier').val();
-    // var passwordCarrier = $('.passwordCarrier').val();
-    // var carrierName = $('.nameCarrier').val();
-    // var mailCarrier = $('.mailCarrier').val();
-    // var phoneNumber = $('.phoneNumber').val();
-    // var newCarrier = new  Carrier(loginCarrier, passwordCarrier, carrierName, mailCarrier, phoneNumber);
-    // Carriers.push(newCarrier);
-    // console.log(Carriers);
-
-
-
-
 });
+
+
