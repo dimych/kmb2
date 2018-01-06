@@ -1,9 +1,22 @@
-.error {
-    border: red 5px solid;
+#wrapper {
+    padding: 5px;
 }
-.hide {
-    display: none;
+#wrapper .createFruits,
+         .removeApple,
+         .removePear,
+         .removeOrange,
+         .clearBasket {
+    margin: 10px;
 }
-.show {
-    display: block;
+
+#fruitsBoxApple,
+#fruitsBoxPear,
+#fruitsBoxOrange {
+    border: 1px solid black;
+    width: 260px;
+}
+
+#fruitsBoxApple,
+#fruitsBoxPear {
+    border-bottom: none;
 }
