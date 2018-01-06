@@ -5,7 +5,8 @@
          .removeApple,
          .removePear,
          .removeOrange,
-         .clearBasket {
+         .clearBasket,
+         .saveBtn {
     margin: 10px;
 }
 

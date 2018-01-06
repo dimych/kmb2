@@ -63,18 +63,3 @@ function LocalStorageService() {
 
 
 
-
-// var apple = new Apple('white naliv', true);
-// var pear = new Pear('wild', 'square');
-// var orange = new Orange('Valencia', 'Turkey');
-
-
-// fruitsService.save('Apple', apple);
-// fruitsService.load('Apple');
-
-// fruitsService.save('Pear', pear);
-// fruitsService.load('Pear');
-
-// fruitsService.save('Orange', orange);
-// fruitsService.load('Orange');
-

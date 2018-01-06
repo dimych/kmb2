@@ -12,7 +12,9 @@ function BasketComponents() {
         $('#wrapper').append('<button class = removeApple>Remove last apple</button>');
         $('#wrapper').append('<button class = removePear>Remove last pear</button>');
         $('#wrapper').append('<button class = removeOrange>Remove last pear</button>');
-        $('#wrapper').append('<button class = clearBasket>Clear Basket</button><hr />');
+        $('#wrapper').append('<button class = removeOrange>Remove last pear</button>');
+        $('#wrapper').append('<button class = saveBtn>Save</button>');
+        $('#wrapper').append('<button class = loadBtn>Load</button><hr />');
         $('body').append('<div id="box"></div>')
         $('#box').append('<div id="fruitsBoxApple">Basket apples is Empty</div>');
         $('#box').append('<div id="fruitsBoxPear">Basket pears is Empty</div>');
@@ -79,14 +81,15 @@ function BasketComponents() {
         // });
     }
 
-    this.clearAllFruits = function() {
+    this.clearAllFruits = function () {
         var that = this;
         var clearButton = this.fruitsButtons[4];
-        clearButton.addEventListener('click', function() {
+        clearButton.addEventListener('click', function () {
             that.fruitsBox.innerHTML = 'Basket is empty';
             // console.log('clear box');
         });
     }
+
 
     // var fruitsButtons = document.querySelectorAll('button');
 
@@ -97,4 +100,3 @@ function BasketComponents() {
     //     });
     // }
 }
-

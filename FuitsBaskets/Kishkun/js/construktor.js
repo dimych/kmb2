@@ -51,21 +51,18 @@ function Basket() {
         this._oranges = [];
     }
 
-    this._dall = new LocalStorageService(); {
-        
-    }
+    this._dallLs = new LocalStorageService();
 
-    this._save = function () {
 
-    }
+    this._dallLs.save('Apple', apple1);
+    this._dallLs.save('Pear', pear1);
+    this._dallLs.save('Orange', orange1);
 
-    this.load = function () {
+    this._dallLs.load('Apple');
+    this._dallLs.load('Pear');
+    this._dallLs.load('Orange');
 
-    }
+    this._dallServer = new ServerApiService();
+    
 }
-
-
-
-
-
 
