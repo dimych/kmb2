@@ -1,0 +1,23 @@
+#wrapper {
+    padding: 5px;
+}
+#wrapper .createFruits,
+         .removeApple,
+         .removePear,
+         .removeOrange,
+         .clearBasket,
+         .saveBtn {
+    margin: 10px;
+}
+
+#fruitsBoxApple,
+#fruitsBoxPear,
+#fruitsBoxOrange {
+    border: 1px solid black;
+    width: 260px;
+}
+
+#fruitsBoxApple,
+#fruitsBoxPear {
+    border-bottom: none;
+}

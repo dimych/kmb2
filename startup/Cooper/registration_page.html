@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Регистрация</title>
+</head>
+<body>
+
+    <div class='selectTypeOfUser'>
+                <input type='radio' name='group1' value='Carrier'>Carrier<br>
+                <input type='radio' name='group1' value='Passenger'>Passenger<br>
+                <p>
+                    <button class='nextBtn'>next</button>
+                </p>
+    </div>
+    <form class='registrationFormPassenger'>
+        <label>login</label></br>
+        <input class='loginPassenger' type='text' placeholder='login'></br>
+        <label>password</label></br>
+        <input class='passwordPassenger' type='text' placeholder='password'></br>
+        <label>first name</label></br>
+        <input class='firstNamePassenger' type='text' placeholder='first name'></br>
+        <label>last name</label></br>
+        <input class='lastNamePassenger' type='text' placeholder='last name'></br>
+        <label>@mail address</label></br>
+        <input class='mailPassenger' type='text' placeholder='@mail'></br>
+        <label>phone number</label></br>
+        <input class='phoneNumberPassenger' type='text' placeholder='phone number'></br>
+        <button class='submitBtnP'>submit</button>
+    </form>
+
+    <form class='registrationFormCarrier'>
+        <label>login</label></br>
+        <input class='loginCarrier' type='text' placeholder='login'></br>
+        <label>password</label></br>
+        <input class='passwordCarrier' type='text' placeholder='password'></br>
+        <label>name of company</label></br>
+        <input class='nameCarrier' type='text' placeholder='company name'></br>
+        <label>@mail address</label></br>
+        <input class='mailCarrier' type='text' placeholder='@mail'></br>
+        <label>phone number</label></br>
+        <input class='phoneNumberCarrier' type='text' placeholder='phone number'></br>
+        <button class='submitBtnC'>submit</button>
+    </form>
+    
+</body>
+</html>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='content/js/carrier.js' defer></script>
+<script src='content/js/minibus.js' defer></script>
+<script src='content/js/passenger.js' defer></script>
+<script src='content/js/route.js' defer></script>
+<script src='content/js/localStorageSaver.js' defer></script>
+<script src='content/js/db.js' defer></script>
+<script src='content/js/index.js'defer></script>
+
+<link rel='stylesheet' type='text/css' href='content/css/index.css'>
