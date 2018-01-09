@@ -1,44 +1,23 @@
 function SaveLoader() {
     this.save = function (key, object) {
-        alert('someday I will save you');
-        
+        var arrayString = JSON.stringify(object);
+        localStorage.setItem(key, arrayString);
     },
-        this.load = function () {
-            alert('someday I will load you');
-        };
+
+    this.load = function (key) {
+        var something = JSON.parse(localStorage.getItem(key));
+        debugger;
+        return something;
+    };
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function Wrapper (objectName) {
+    this.key = objectName.constructor.name;
+    this.object = objectName;
+}
 
 var saveLoader = new SaveLoader();
 
-var apples = [{ h: 768 }, { k: 78 }];
-
-saveLoader.save("apples", apples);
-
-var applesFromDB = saveLoader.get("applaes");
+saveLoader.save('bam', basket.apples);
+var array1 = saveLoader.load('bam');
 

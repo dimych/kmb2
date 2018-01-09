@@ -28,10 +28,12 @@ basketApp = {
         this.$addButton.on('click', function (e) { that.addFruit(e) });
         this.$giveButton.on('click', function (e) { that.giveFruit(e) });
         this.$clearButton.on('click', function (e) { that.clearFruit(e) });
-        this.$saveButton.on('click', saveLoader.save);
-        this.$loadButton.on('click', saveLoader.load);
+        // this.$saveButton.on('click', saveLoader.save);
+        // this.$loadButton.on('click', saveLoader.load);
     },
 
+
+    
     addFruit: function () {
         var fruitName = $('#adding input').val();
         var fruitType = $('#adding select option:selected').html();
