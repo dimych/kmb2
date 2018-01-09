@@ -1,0 +1,14 @@
+.containerTable{
+    width: 100%;
+    text-align: left
+}
+.inputForNewTaskName{
+    width: 126px;
+}
+.buttonForNewTaskName{
+    width: 45px;
+    text-align: center;
+}
+.containerTable td{
+    width: 25%;
+}
