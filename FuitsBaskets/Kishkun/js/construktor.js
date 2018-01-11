@@ -26,7 +26,7 @@ function Basket() {
 
     this.getAllApples = function (typeOfProduct) {
         if (typeOfProduct === Apple)
-            for (var i = 0; i < this_apples.length; i++) {
+            for (var i = 0; i < this._apples.length; i++) {
                 console.log(this._apples[i]);
             }
     }
@@ -36,31 +36,33 @@ function Basket() {
             for (var i = 0; i < this._pears.length; i++) {
                 console.log(this._pears[i]);
             }
+    }
 
     this.getAllOrange = function (typeOfProduct) {
         if (typeOfProduct === Orange)
             for (var i = 0; i < this._oranges.length; i++) {
                 console.log(this._oranges[i]);
             }
-        }
-
-        this.clear = function () {
-            this._apples = [];
-            this._pears = [];
-            this._oranges = [];
-        }
     }
-}
+
+    this.clear = function () {
+        this._apples = [];
+        this._pears = [];
+        this._oranges = [];
+    }
+
+    this._dallLs = new LocalStorageService();
+
+
+    this._dallLs.save('Apple', apple1);
+    this._dallLs.save('Pear', pear1);
+    this._dallLs.save('Orange', orange1);
+
+    this._dallLs.load('Apple');
+    this._dallLs.load('Pear');
+    this._dallLs.load('Orange');
+
+    this._dallServer = new ServerApiService();
     
-
-    function BasketApp() {
-        $('div').append('<select><option>Apple</option><option>Orange</option><option>Pear</option></select>');
-        $('div').append('<button class = createFruits>Create Fruits</button>');
-        $('div').append('<button class = saveBtn>Save Fruits</button>');
-        $('div').append('<button class = loadBtn>Load Fruits</button>');
-        $('.createFruits').on('click', function () {
-            console.log('click me');
-        });
-    }
-
+}
 
