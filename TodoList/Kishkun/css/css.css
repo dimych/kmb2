@@ -21,6 +21,13 @@
     background-color: rgb(235, 144, 144);
 }
 
+.deleteTask {
+    text-decoration: none;
+}
+
+.deleteTask:hover {
+    color: red;
+}
 /* .my-list {
     position: absolute;
     right: 0;
