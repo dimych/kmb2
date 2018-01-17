@@ -2,15 +2,8 @@ var List = function (id, title) {
     this.list = new ToDoList(id, title);
     this.listContainer = document.createElement('div');
     this.listsContainer = document.getElementById('lists-container');
-    // this.listElement = null;
-    // this.listTitle = null;
-    // this.listAddForm = null;
-    // this.titleInput = null;
-    // this.dateInput = null;
-    // this.addNewTaskButton = null;
-    // this.dateLabel = null;
 
-    this.init = function () {
+    this.init = async function () {
         var listElement = document.createElement('div');
         listElement.id = this.list.id;
         this.listsContainer.appendChild(listElement);
@@ -41,6 +34,7 @@ var List = function (id, title) {
         var that = this;
         addNewTaskButton.addEventListener('click', function (e) { that.onaddNewListBtnClick(e, that)});
         titleInput.addEventListener('keyup', function (e) { that.onnewTitleListInputChange(e, that) });
+        this.render();
     };
 
     this.onnewTitleListInputChange = function (e) {
@@ -52,28 +46,29 @@ var List = function (id, title) {
         }
     };
 
-    this.onaddNewListBtnClick = function (e, that) {
+    this.onaddNewListBtnClick = async function (e, that) {
         e.preventDefault();
-        that.list.addTask(e.currentTarget.form[0].value, e.currentTarget.form[1].value);
-        e.currentTarget.form[0].value = '';
-        e.currentTarget.form[2].disabled = true;
+        var form = e.currentTarget.form;
+        await that.list.addTask(e.currentTarget.form[0].value, e.currentTarget.form[1].value);
+        console.log('2');        
+        form[0].value = '';
+        form[2].disabled = true;
         that.render();
     };
 
-    this.deleteTaskClick = function (e, id, that) {
+    this.deleteTaskClick = async function (e, id, that) {
         e.preventDefault();
-        that.list.deleteTask(id);
-        that.render();
+        await that.list.deleteTask(id);
+        await that.render();
     };
 
-    this.checkTaskClick = function (e, id, that) {
+    this.checkTaskClick = async function (e, id, that) {
         e.preventDefault();
-        that.list.checkTask(id);
-        that.render();
+        await that.list.checkTask(id);
+        await that.render();
     };
 
     this.renderTask = function (taska) {
-
         var taskContainer = document.createElement('div');
         var task = document.createElement('div');
         var taskTitle = document.createElement('p');
@@ -107,16 +102,16 @@ var List = function (id, title) {
         // editLink.addEventListener('click', function(e){that.editTask(taska.id)});
     }
 
-    this.render = function () {
+    this.render = async function () {
+        console.log('3');        
         this.listContainer.innerHTML = '';
-        for (var i in this.list.arrTasks) {
-            this.renderTask(this.list.arrTasks[i]);
+        var tasks = await this.list.getAllTasks();
+        console.log(tasks);
+        for (var i in tasks) {
+            this.renderTask(tasks[i]);
         }
     }
 }
 
-var list = new List(2, 'Home work');
+var list = new List(1, 'Home work');
 list.init();
-
-var list2 = new List(3, 'Bye products');
-list2.init();
