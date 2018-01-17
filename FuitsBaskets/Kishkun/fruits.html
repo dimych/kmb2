@@ -8,10 +8,29 @@
 
 <body>
 
+    <div id="wrapperFruit"></div>
+    <!-- <div id='box'></div> -->
+
+    <script id='fruits' type='text/html'>
+        <h1>{{:name}}</h1>
+        <button class='createFruits' data-role='createFruits'>Create Fruits</button>
+        <button class='removeApple' data-role='removeApple'>Remove last apple</button>
+        <button class='removePear' data-role='removePear'>Remove last pear </button>
+        <button class='removeOrange' data-role='removeOrange'>Remove last orange</button>
+        <button class='removeAllFruits' data-role='removeAllFruits'>Remove all Fruits</button>
+        <button class='saveBtn' data-role='saveBtn'>Save</button>
+        <button class='loadBtn' data-role='loadBtn'>Load</button>
+        <hr /> 
+        <div id='fruitsBoxApple' data-role='fruitsBoxApple'>Basket apples is Empty</div>  
+        <div id='fruitsBoxPear' data-role='fruitsBoxPear'>Basket pears is Empty</div>    
+        <div id='fruitsBoxOrange' data-role='fruitsBoxOrange'>Basket oranges is Empty</div>
+    </script>
+
     <link rel='stylesheet' href='css/css.css' />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.90/jsrender.js"></script>
     <script src='js/dall-lc.js'></script>
-    <script src='js/dall-server.js'></script>
+    <!-- <script src='js/dall-server.js'></script> -->
     <script src='js/uiComponents.js'></script>
     <script src='js/construktor.js'></script>
     <script src='js/data-js.js'></script>
