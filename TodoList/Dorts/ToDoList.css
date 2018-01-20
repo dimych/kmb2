@@ -1,4 +1,12 @@
-.js-delete {
+p {
     display: inline;
-    margin-right: 10px    
+    margin: auto 5px;    
+}
+
+.line-through div p {
+    text-decoration: line-through;
+}
+
+.task div{
+    display: inline;
 }
