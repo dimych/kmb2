@@ -1,0 +1,21 @@
+.block { 
+    display: inline-block; 
+    position:relative;
+    top:80px;
+    left:30%;
+}
+.image {
+    width: 250px;
+    height: 350px;
+}
+button {
+    float: left;
+    height: 350px;
+    background-color: black;
+    color: rgb(79, 187, 245);
+}
+img {
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
