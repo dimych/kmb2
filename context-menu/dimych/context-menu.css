@@ -1,0 +1,9 @@
+.itk-context-menu {
+  position: relative;
+}
+.itk-context-menu .items {
+  display: none;
+}
+.itk-context-menu.active .items {
+  display: block;
+}
