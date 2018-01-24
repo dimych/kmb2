@@ -33,8 +33,8 @@ function SliderLogic() {
         return this._isCycled = !this._isCycled
     };
     this.init = function (callBack) {
-        this._dataService.getAllUrls(function () {
-            that._imageUrls = that._dataService.imageArrUrls;
+        this._dataService.getAllUrls(function (urls) {
+            that._imageUrls = urls;
             callBack();
         });
     };
