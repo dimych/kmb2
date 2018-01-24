@@ -1,10 +1,9 @@
 function SliderLogic() {
+    var that = this;
     this._imageUrls = [];
     this._i = 0;
     this._isCycled = false;
     this._dataService = new SliderData();
-    this._imageUrls = this._dataService.getAllUrls();    
-
     this.getCurrentImageUrl = function () {
         return this._imageUrls[this._i];
     };
@@ -32,5 +31,11 @@ function SliderLogic() {
     };
     this.activCycled = function () {
         return this._isCycled = !this._isCycled
-    };    
+    };
+    this.init = function (callBack) {
+        this._dataService.getAllUrls(function () {
+            that._imageUrls = that._dataService.imageArrUrls;
+            callBack();
+        });
+    };
 }
