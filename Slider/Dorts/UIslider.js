@@ -1,28 +1,12 @@
 function SliderView() {
+    var that = this;
     this.butLeft = null;
     this.butRight = null;
     this.imageId = null;
     this.el = null;
     this._sliderLogic = new SliderLogic();
-
 }
-
-SliderView.prototype._render = function () {
-    this.el.innerHTML = `
-    <div class='block'>
-    <button class='prev'>PREV</button>
-    <img class='image' />
-    <button class='next'>NEXT</button>
-    </div>
-    <br>
-    <div class='block'>
-    <input type = "checkbox" id='isCycled'>CYCLED</input>
-    </div>        
-    `;
-};
-
 SliderView.prototype.start = function (elId) {
-    var that = this;
     var elSelector = ('#' + elId);
     this.el = document.querySelector(elSelector);
     this._render();
@@ -40,15 +24,28 @@ SliderView.prototype.start = function (elId) {
     this.cycledId.addEventListener('click', function (event) {
         that._sliderLogic.activCycled();
     });
-    this.imageId.src = this._sliderLogic.getCurrentImageUrl();
+    this._sliderLogic.init(function(){
+        that.imageId.src = that._sliderLogic.getCurrentImageUrl();        
+    });
 };
-
+SliderView.prototype._render = function () {
+    this.el.innerHTML = `
+    <div class='block'>
+    <button class='prev'>PREV</button>
+    <img class='image' />
+    <button class='next'>NEXT</button>
+    </div>
+    <br>
+    <div class='block'>
+    <input type = "checkbox" id='isCycled'>CYCLED</input>
+    </div>        
+    `;
+};
 SliderView.prototype.next = function (event) {
     this._sliderLogic.activNextImage();
     this._sliderLogic.getNextImage();
     this.imageId.src = this._sliderLogic.getCurrentImageUrl();
 };
-
 SliderView.prototype.prev = function (event) {
     this._sliderLogic.activPrevImage();
     this._sliderLogic.getPrevImage();
