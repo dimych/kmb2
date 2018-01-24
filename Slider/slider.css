@@ -1,7 +1,6 @@
 .block { 
     display: inline-block; 
     position:relative;
-    /* top:80px; */
     left:30%;
 }
 .image {
@@ -18,4 +17,12 @@ img {
     float: left;
     margin-right: 10px;
     margin-left: 10px;
+}
+#prev1 {
+    background-color: rgb(133, 213, 237);
+    color:black;
+}
+#next1 {
+    background-color: rgb(133, 213, 237);
+    color:black;
 }
