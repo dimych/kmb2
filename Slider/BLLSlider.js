@@ -1,9 +1,9 @@
-function SliderLogic() {
+function SliderLogic(sliderData) {
     var that = this;
     this._imageUrls = [];
     this._i = 0;
     this._isCycled = false;
-    this._dataService = new SliderData();
+    this._dataService = sliderData;
     this.getCurrentImageUrl = function () {
         return this._imageUrls[this._i];
     };

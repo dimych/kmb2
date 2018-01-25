@@ -9,3 +9,14 @@ function SliderData() {
         callBack(imageArrUrls);
     }
 }
+
+function SliderDataNew() {
+    this.getAllUrls = function (callBack) {
+        var imageArrUrls = [];        
+        imageArrUrls.push('https://s8.hostingkartinok.com/uploads/images/2018/01/064917c321506ea5d1eac47e6677ebc4.jpg');
+        imageArrUrls.push('https://s8.hostingkartinok.com/uploads/images/2018/01/10f124b6c6158e7a1a22c85026fc39c4.jpg');
+        imageArrUrls.push('https://s8.hostingkartinok.com/uploads/images/2018/01/f05dff4037d1508b8a737dd7b92e6e04.jpg');
+        imageArrUrls.push('https://s8.hostingkartinok.com/uploads/images/2018/01/299e8ac5bb5aacb56fdcda17d03b8b68.jpg');
+        callBack(imageArrUrls);
+    }
+}

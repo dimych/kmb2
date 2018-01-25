@@ -1,6 +1,7 @@
 .block { 
     display: inline-block; 
     position:relative;
+    /* top:80px; */
     left:30%;
 }
 .image {
@@ -8,21 +9,45 @@
     height: 350px;
 }
 button {
+    display: block;
     float: left;
     height: 350px;
     background-color: black;
     color: rgb(79, 187, 245);
 }
 img {
+    display: block;
     float: left;
     margin-right: 10px;
     margin-left: 10px;
 }
+
 #prev1 {
+    display: block;
+    float: none !important;
+    width: 350px; 
+    height: 20px;
     background-color: rgb(133, 213, 237);
     color:black;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 #next1 {
+    display: block;  
+    float: none !important;
+    width: 350px;   
+    height: 20px;
     background-color: rgb(133, 213, 237);
     color:black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+#image1 {
+    float: none !important;
+    display: block;    
+    width: 350px; 
+    margin-right: 1px !important;
+    margin-left: 1px !important;
+    height: 500px;
 }

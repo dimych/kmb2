@@ -1,5 +1,5 @@
-function SliderViewPretty() {
-    SliderView.apply(this);
+function SliderViewPretty(sliderData) {
+    SliderView.apply(this, [sliderData]);
 }
 
 SliderViewPretty.prototype = new SliderView();
@@ -9,9 +9,9 @@ SliderViewPretty.prototype._render = function () {
     this.el.innerHTML =  `
     <hr>
     <div class='block'>
-    <button id='prev1' class='prev'>PREV</button>
-    <img class='image' />
-    <button id='next1' class='next'>NEXT</button>
+    <button id='prev1' class='prev'>NEXT</button>
+    <img class='image' id ='image1'/>
+    <button id='next1' class='next'>PREV</button>
     </div>
     <br>
     <div class='block'>

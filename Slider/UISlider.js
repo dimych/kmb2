@@ -1,12 +1,12 @@
-function SliderView() {
+function SliderView(sliderData) {
     var that = this;
     this.butLeft = null;
     this.butRight = null;
     this.imageId = null;
     this.el = null;
-    this._sliderLogic = new SliderLogic();
+    this._sliderLogic = new SliderLogic(sliderData);
 }
-SliderView.prototype.start = function (elId) {
+SliderView.prototype.start = function (elId) {    
     var elSelector = ('#' + elId);
     this.el = document.querySelector(elSelector);
     this._render();
