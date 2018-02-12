@@ -1,0 +1,10 @@
+.header-toDoList {
+    position: relative;
+    text-align: center;
+}
+
+.header-toDoList .header-logo img {
+    left: 850px;
+    position: absolute;
+    width: 30px;
+}

@@ -1,0 +1,14 @@
+<div class="todos">
+    <div class='header-toDoList' data-role='header-toDoList'>
+        <div class='header-logo'>
+            <img src="favicon.ico">
+        </div>
+        <h1 class='header-title'>{{title}}</h1>
+    </div>
+    <div class='main-toDoList' data-role='main-toDoList'>
+            <app-add-task (creatTaskEmitter)='onAddTask($event)'></app-add-task>
+        <ul>
+            <task [item]='task' (deleteTaskEmitter)='onDeleteTask($event)' *ngFor='let task of tasks'></task>
+        </ul>
+    </div>
+</div>
