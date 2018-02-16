@@ -1,0 +1,5 @@
+<li class='main-toDoList-li'  [ngClass]='{"done": item.completed}'>
+  <input type="checkbox" class="checkbox" (click)='onCheck()' />
+  {{item.name}} 
+  <button class='delete-button' data-role='delete-button' (click)="onDelete()">&#10006;</button>
+</li>

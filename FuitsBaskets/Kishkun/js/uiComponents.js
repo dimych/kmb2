@@ -7,23 +7,25 @@ function BasketComponents() {
     this._basket.getAllApples();
 
     this.render = function () {
-        $('body').append('<div id="wrapper"></div>')
-        $('#wrapper').append('<button class = createFruits>Create Fruits</button>');
-        $('#wrapper').append('<button class = removeApple>Remove last apple</button>');
-        $('#wrapper').append('<button class = removePear>Remove last pear</button>');
-        $('#wrapper').append('<button class = removeOrange>Remove last pear</button>');
-        $('#wrapper').append('<button class = removeOrange>Remove last pear</button>');
-        $('#wrapper').append('<button class = saveBtn>Save</button>');
-        $('#wrapper').append('<button class = loadBtn>Load</button><hr />');
-        $('body').append('<div id="box"></div>')
-        $('#box').append('<div id="fruitsBoxApple">Basket apples is Empty</div>');
-        $('#box').append('<div id="fruitsBoxPear">Basket pears is Empty</div>');
-        $('#box').append('<div id="fruitsBoxOrange">Basket oranges is Empty</div>');
+        // $('#wrapperFruit').append('<button class="createFruits">Create Fruits</button>');
+        // $('#wrapperFruit').append('<button class="removeApple">Remove last apple</button>');
+        // $('#wrapperFruit').append('<button class="removePear">Remove last pear</button>');
+        // $('#wrapperFruit').append('<button class="removeOrange">Remove last orange</button>');
+        // $('#wrapperFruit').append('<button class="removeAllFruits">Remove all fruits</button>');
+        // $('#wrapperFruit').append('<button class="saveBtn">Save</button>');
+        // $('#wrapperFruit').append('<button class="loadBtn">Load</button><hr />');
+        // $('#wrapperFruit').append('<div id="fruitsBoxApple">Basket apples is Empty</div>');
+        // $('#wrapperFruit').append('<div id="fruitsBoxPear">Basket pears is Empty</div>');
+        // $('#wrapperFruit').append('<div id="fruitsBoxOrange">Basket oranges is Empty</div>');
+        var boxWithFruits = $.templates('#fruits');
+        var html = boxWithFruits.render({
+            name: 'My fruits box'
+        });
+        $('#wrapperFruit').append(html);
 
         this.fruitsBoxApple = document.querySelector('#fruitsBoxApple');
         this.fruitsBoxPear = document.querySelector('#fruitsBoxPear');
         this.fruitsBoxOrange = document.querySelector('#fruitsBoxOrange');
-        this.fruitsBox = document.querySelector('#box');
         this.fruitsButtons = document.querySelectorAll('button');
         var that = this;
         for (var i = 0; i < this.fruitsButtons.length; i++) {
@@ -50,8 +52,12 @@ function BasketComponents() {
     this.removeLastApple = function () {
         var that = this;
         var removeLastApple = this.fruitsButtons[1];
+        removeLastApple.disabled = true;
         removeLastApple.addEventListener('click', function () {
-            that.fruitsBoxApple.innerHTML = apple1.name;
+            if (that.fruitsBoxApple.innerHTML = apple1.name + ', ' + apple2.name) {
+                removeLastApple.disabled = false;
+                that.fruitsBoxApple.innerHTML = apple1.name;
+            }
         });
 
         // $('.removeApple').on('click', function () {
@@ -62,6 +68,7 @@ function BasketComponents() {
     this.removeLastPear = function () {
         var that = this;
         var removeLastPear = this.fruitsButtons[2];
+        removeLastPear.disabled = true;
         removeLastPear.addEventListener('click', function () {
             that.fruitsBoxPear.innerHTML = pear1.name;
         });
@@ -73,6 +80,7 @@ function BasketComponents() {
     this.removeLastOrange = function () {
         var that = this;
         var removeLastOrange = this.fruitsButtons[3];
+        removeLastOrange.disabled = true;
         removeLastOrange.addEventListener('click', function () {
             that.fruitsBoxOrange.innerHTML = orange1.name;
         });
@@ -84,8 +92,11 @@ function BasketComponents() {
     this.clearAllFruits = function () {
         var that = this;
         var clearButton = this.fruitsButtons[4];
+        clearButton.disabled = true;
         clearButton.addEventListener('click', function () {
-            that.fruitsBox.innerHTML = 'Basket is empty';
+            that.fruitsBoxApple.innerHTML = 'Basket is empty';
+            that.fruitsBoxPear.innerHTML = 'Basket is empty';
+            that.fruitsBoxOrange.innerHTML = 'Basket is empty';
             // console.log('clear box');
         });
     }

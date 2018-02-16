@@ -52,6 +52,8 @@ buttonForAddTaskNameEl.addEventListener('click', function(e){
     var nameTask = inputTaskNameEl.value;
     toDoList.addTask(nameTask);
 });
+
+
 function onButtonUpdateTaskClick() {
     buttonForupdateTask = document.querySelectorAll('#updateTask');
     for (var i = 0; i < buttonForupdateTask.length; i++) {

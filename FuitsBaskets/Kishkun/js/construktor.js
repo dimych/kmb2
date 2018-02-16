@@ -62,7 +62,7 @@ function Basket() {
     this._dallLs.load('Pear');
     this._dallLs.load('Orange');
 
-    this._dallServer = new ServerApiService();
+    // this._dallServer = new ServerApiService();
     
 }
 
