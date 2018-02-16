@@ -1,33 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 import { Task } from '../models/taskModel';
 
 
 @Injectable()
 export class TaskService {
 
-  private tasks: Task[];
+  constructor(private httpClient: HttpClient) { }
 
-  getTasks(): Task[] {
-    return this.tasks;
+  public getTasks(url: string): Observable<any> {
+    return this.httpClient.get(url);
   }
 
-  onAddTask(title: string) {
-
+  public creatTasks(url: string, name: string): Observable<any> {
+    return this.httpClient.post(url, {
+      title: name
+    } );
   }
-  // private nextId: number;
 
-  // constructor() {
-  //   this.tasks = [
-  //     new Task(0, 'Learn HTML'),
-  //     new Task(1, 'learn CSS'), 
-  //     new Task(2, 'Learn JavaScript'),
-  //   ];
-
-  //   this.nextId = 3;
-  //  }
-
-  //  private onAddTask(name: string): void {
-  //   console.log(this.tasks);
-  //  }
-
+  public delete(url: string): Observable<any> {
+    return this.httpClient.delete(url);
+  }
 }

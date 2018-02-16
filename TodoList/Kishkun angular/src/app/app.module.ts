@@ -6,16 +6,18 @@ import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { TaskService } from './services/task.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
-    AddTaskComponent
+    AddTaskComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]
