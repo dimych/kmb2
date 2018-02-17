@@ -1,0 +1,17 @@
+<ul>
+   <task [item]="task" (deleteEmitter) = 'deleteTask($event)' (changeEmitter) = 'saveTask($event)'  *ngFor='let task of tasks'  ></task>
+   
+</ul>
+
+<add-task (addEmitter) = 'AddTask($event)'></add-task>
+
+
+<!-- <ul>
+  <li>
+
+    </li>
+    <li>
+      <li*ngFor='app-root'>{{tasks[1].id}}</li>
+      <li*ngFor='app-root'>{{tasks[1].name}}</li>
+      </li>
+</ul> -->

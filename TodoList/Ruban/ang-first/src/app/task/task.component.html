@@ -1,0 +1,11 @@
+<!-- <li *ngFor='let task of tasks'> -->
+  <li [ngClass]='{"done": item.completed}'  *ngIf='!isEditMode'>
+ {{item.title}}
+    <input type="checkbox" (click)='onCheckBox()'  >
+    <input (click) = 'onDelete()' type="button" value = 'delete' >
+    <input (click) = 'toggleEditMode()' type="button" value="change name">
+  </li>
+  <li *ngIf='isEditMode'>
+    <input type="text" [(ngModel)]='item.title'>
+    <input type="button" value="ok" (click)='toggleEditMode(); saveTask()'>
+  </li>
