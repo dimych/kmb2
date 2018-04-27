@@ -1,0 +1,7 @@
+<!-- <li *ngFor='let task of tasks'> -->
+  <li [ngClass]='{"done": item.completed}'>
+ {{item.title}}
+    <input type="checkbox" (click)='onCheckBox()'  >
+    <input (click) = 'onDelete()' type="button" value = 'delete'>
+    <input (click) = 'onChange()' type="button" value="change name">
+  </li>

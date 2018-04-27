@@ -1,0 +1,4 @@
+<form (ngSubmit) = 'create(); todoForm.reset()' #todoForm='ngForm'>
+    <input name = 'title' [(ngModel)] ='newToDoTitle' type="text" placeholder="Впишите название задания" required>
+    <button type = 'submit' [disabled] = 'todoForm.form.invalid'>add task</button>
+  </form>
